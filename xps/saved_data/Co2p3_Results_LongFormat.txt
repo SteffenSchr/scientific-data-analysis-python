@@ -1,0 +1,6 @@
+Sample	Element	Region	Component	Area	Lower_Lim	Upper_Lim
+pristine	Co2p3	Co2p3	Total Region	5537.868634643558		
+washed01	Co2p3	Co2p3	Total Region	7426.073963623048		
+washed02	Co2p3	Co2p3	Total Region	7393.622610473637		
+washed03	Co2p3	Co2p3	Total Region	7990.510057067875		
+washed04	Co2p3	Co2p3	Total Region	6974.956250915533		

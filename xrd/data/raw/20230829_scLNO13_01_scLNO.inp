@@ -1,0 +1,188 @@
+'--------------------------------------------------------------
+'Input File
+'--------------------------------------------------------------
+r_wp  13.8537117
+r_exp  4.89589493
+r_p  10.9579763
+r_wp_dash  18.5574355
+r_p_dash  16.9172889
+r_exp_dash  6.55818863
+weighted_Durbin_Watson  0.274083493
+gof  2.82965871
+
+'--------------------------------------------------------------
+iters 100000
+chi2_convergence_criteria 0.001
+do_errors
+continue_after_convergence 
+randomize_on_errors
+
+'--------------------------------------------------------------
+
+
+'--------------------------------------------------------------
+' data input, .xy needs to be in same folder as.inp
+'--------------------------------------------------------------
+
+xdd "20230829_scLNO13_01_CapillarySpinner_Angle5to40_StepSize0p0072_StepTime200s_1.xy"
+start_X 10
+'finish_X 24
+
+'--------------------------------------------------------------
+' IRF (Instrumental Resolution Function) 
+'--------------------------------------------------------------
+
+'Empyrean with Mo anode
+			
+'----------------------------	   
+' Wavelenght of the X Ray Source
+'----------------------------
+			lam ymin_on_ymax 0.0001		'these lines are only precise if IRF is described empirically
+   		Lam_recs							'equivalent command: MoKa2(0.0001)  =  Mo Ka1/a2 2 line emission
+   		{
+   		   '0.6533 @  0.7092396 0.2695 	' LaB6-angepasste Wellenlänge
+   		   0.6533 0.70932 0.2695         
+   		   '0.6533 0.709300  0.2695      
+   		   '0.3467 @  0.7136874 0.2795   
+   		   0.3467 0.71361 0.2795           
+   		   '0.3467 0.713574  0.2795         
+   		}
+           	
+            	
+'IRF (change values corresponding to setup):
+
+				LP_Factor(!th2_monochromator, 90) 
+					'Lorentz and Lorentz-Polarisation factor: monochromato angle in [°2theta]
+					'unpolarized (no monochromator): LP_Factor(!th2_monochromator, 90)
+					'fully polarized (e.g. synchrotron): LP_Factor(0)
+					'common monochromator: Ge : 27.3 Graphite : 26.4 Quartz : 26.6
+										
+
+            'Full_Axial_Model(10,  10, 14, 3.05 , 6.1) 
+            	'Full_Axial_Model(filament_cv, sample_cv, detector_cv, psol_cv, ssol_cv)
+            	'[filament_cv]: Tube filament length in [mm]
+            	'[sample_cv]: Sample length in axial direction in [mm]
+            	'[detector_cv]: Length of the detector (= receiving) slit in [mm]
+            	'[psol_cv, ssol_cv]: Aperture of the primary and secondary Soller slit in [°]
+            Simple_Axial_Model(!axial, 5.37150) 
+            	'single argument description of divergence-related asymmetry effects
+            
+            
+            'Slit_Width(!swdth, 0.1) 'aperture of the receiving slit in the equatorial plane in [mm]
+            'Divergence(, 0.5) 'divergence slit width, e.g. 1/32° = 0.03125, 1/2° = 0.5
+               
+            'Rp 240 'primary radius [mm]
+            'Rs 240 'secondary radius [mm]
+   
+            'Tube_Tails(@, 0.01190_LIMIT_MIN_1e-005,@,-0.13719, @, 0.05049_LIMIT_MIN_1e-005, @, 0.00459_LIMIT_MIN_1e-005)
+            ' Tube tails from instrument
+            
+            'Specimen_Displacement(@,0) 'Bragg-Brentano sample displacement correction
+            Zero_Error(, 0.00218_0.00015) 'simplest angular correction of a constant shift, mostly used for capillary and transmission !DO NOT REFINE PARALLEL TO Specimen_Displacement! 
+
+'--------------------------------------------------------------
+'Information on datafile etc here
+'Check that default weighting is appropriate for your data
+'--------------------------------------------------------------
+
+'--------------------------------
+' Define new Parameter for determine Disorder of the CAM Material --> Needed for Rietveld Fit
+'--------------------------------
+prm Niocc1  0.01460`_0.00141 min 0 max 0.1
+prm Liocc1  =1.00-Niocc1; :  0.98540`_0.00141
+prm Niocc2  =1.00-Niocc1; :  0.98540`_0.00141
+prm Liocc2  =1.00-Liocc1; :  0.01460`_0.00141
+
+'penalty = ((Liocc1+Niocc1) - 1)^2;
+
+'-------------------------------
+' Background
+'-------------------------------
+	x_calculation_step = Yobs_dx_at(Xo); convolution_step 4
+	bkg @  164.684668`_0.812390286 -90.9117631`_1.38605104  26.9346685`_1.30925549 -11.3449129`_1.25092269  1.98230236`_1.18263737 -8.11057429`_1.10428431  18.8019242`_1.09830987 -17.9691879`_1.00816193  4.28032624`_0.971803225
+
+'-------------------------------
+' Pawley Phase
+'-------------------------------
+
+'	hkl_Is
+'		TCHZ_Peak_Type(!pku,-0.04816_0.00895,!pkv, -0.01166_0.00259,!pkw,  0.00053_0.00016,!pkz, 0.0000,!pky, 0.08365_0.00729,!pkx, 0.01104_0.00106)
+'		phase_name LNO
+'		Hexagonal(@  2.915831_0.000199, @  65.708069_0.015005)
+'		space_group "R-3mH"
+'		load hkl_m_d_th2 I 
+'		{}
+	
+
+'------------------------------- 
+' Rietveld Phase
+'-------------------------------
+
+'--------------------------------------------------------------
+'Information on structure
+'Type in phase/space group/cell etc
+'Comment in/out sections as needed
+'--------------------------------------------------------------
+
+	str
+		TCHZ_Peak_Type(!pku, 0.04667_0.01466,!pkv, -0.03187_0.00644,!pkw,  0.00216_0.00066,!pkz, 0.0000,!pky, 0.13885_0.00302,!pkx, 0.0000)
+'		CS_L(@, 9999.99942_9784.44867_LIMIT_MIN_0.3 )                                                               
+'		CS_G(@, 3551.02340_16458.85318 )
+'		Lvol.....
+'		Strain_L(, 0.07911_0.00116 min 0 max 0.4)
+'		Strain_G(@, 0.00127 min 0 max 0.4
+'		e0_from_Strain( 0.00018, sgc1, 0.00010_LIMIT_MIN_0.0001, slc1, 0.08090)
+		phase_name LNO                                                                                        
+		a a1  2.877846`_0.000027 min 2.86 max 2.89                                                                            
+		b = a1;                                                                                                 
+		c c1  14.191781`_0.000257                                                                             
+		al 90                                                                                                   
+		be 90                                                                                                   
+		ga 120                                                                                                  
+		space_group "R-3mH"                                                                                          
+		
+		volume  101.789`_0.003		
+		site Li1    x 0             y 0             z 0             occ Li = Liocc1;  beq !ADP1  0.00391_0.18709_LIMIT_MIN_0 min 0 max 5
+		site Ni1    x 0             y 0             z 0             occ Ni = Niocc1;  beq =ADP1;  
+		site Li2    x 0             y 0             z 0.5           occ Li = Liocc2;  beq !ADP2  0.58190_0.03212 min 0 max 5
+		site Ni2    x 0             y 0             z 0.5           occ Ni = Niocc2;  beq =ADP2;
+		site O1     x 0             y 0             z @  0.24097`_0.00023	min 0 max 0.5		occ O 1				beq !ADP3  0.64272_0.06417 min 0 max 5
+		scale @  0.0011709821`_4.334e-006
+		r_bragg  3.25532577
+		Phase_Density_g_on_cm3( 4.77821`_0.00012)
+		
+	'Rietveld_Tics_2th(NCM.tic, -2000)
+'******************************
+' Output
+'******************************
+'	
+'   Out_CIF_STR (NCM83_MSE_Feb22.cif)
+'   
+'   xdd_out NCM83_MSE_Feb22.chi load out_record out_fmt out_eqn
+'   {
+'     " %11.5f  " = X;
+'     " %11.5f  " = Yobs;
+'     " %11.5f  " = Ycalc;
+'     " %11.5f\n" = Yobs-Ycalc;
+'   }
+'Rietveld_Plot(XXXXX.xy)	
+		
+		
+C_matrix_normalized
+{
+                             1   2   3   4   5   6   7   8   9  10  11  12  13  14
+Niocc1                 1:  100   4   3   1   2   2   1  -2  -3  -0  -0   2  58   7
+bkg22962384            2:    4 100 -35  63 -25  46 -22  42 -17  24   1  -1  -8   2
+bkg22964176            3:    3 -35 100 -35  61 -27  48 -21  33 -10  -0  -0  -0  -0
+bkg22960592            4:    1  63 -35 100 -34  64 -25  42 -13  29  -0   0   4  -0
+bkg22963408            5:    2 -25  61 -34 100 -34  55 -20  30 -16   0   1   2  -6
+bkg22962896            6:    2  46 -27  64 -34 100 -30  52 -22  26   0   0   2  -1
+bkg22953680            7:    1 -22  48 -25  55 -30 100 -35  42 -15  -0   0   3   2
+bkg22960848            8:   -2  42 -21  42 -20  52 -35 100 -29  49   1  -1  -6   3
+bkg22963664            9:   -3 -17  33 -13  30 -22  42 -29 100 -21  -0   1   0  -5
+bkg22950864           10:   -0  24 -10  29 -16  26 -15  49 -21 100   0  -1  -1   5
+a1                    11:   -0   1  -0  -0   0   0  -0   1  -0   0 100 -49  -1   1
+c1                    12:    2  -1  -0   0   1   0   0  -1   1  -1 -49 100   3  -8
+scale19564496_        13:   58  -8  -0   4   2   2   3  -6   0  -1  -1   3 100  -7
+z26086008_            14:    7   2  -0  -0  -6  -1   2   3  -5   5   1  -8  -7 100
+}

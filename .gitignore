@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Editors and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Plots written by the notebooks: every plot output folder (images/, xps/images_publication/)
+# has its own .gitignore, so only the notebooks contain the plots.
+# tof-sims/images is a topic folder: its notebook saves the ion image next to itself.
+tof-sims/images/*.png

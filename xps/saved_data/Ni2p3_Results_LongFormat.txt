@@ -1,0 +1,6 @@
+Sample	Element	Region	Component	Area	Lower_Lim	Upper_Lim
+pristine	Ni2p3	Ni2p3	Total Region	46989.85747314453		
+washed01	Ni2p3	Ni2p3	Total Region	63775.935605773935		
+washed02	Ni2p3	Ni2p3	Total Region	67239.53350952148		
+washed03	Ni2p3	Ni2p3	Total Region	68156.61235351562		
+washed04	Ni2p3	Ni2p3	Total Region	60866.91358398438		

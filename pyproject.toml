@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "scientific_utils"
+version = "0.1.0"
+description = "Functions for evaluating battery, impedance, ToF-SIMS, XPS and XRD measurements"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+dependencies = [
+    "numpy",
+    "pandas",
+    "scipy",
+    "matplotlib",
+    "plotly",
+    "plotly-resampler",
+    "kaleido",
+    "colour",
+    "lmfit",
+    "numdifftools",
+    "statsmodels",
+    "scikit-learn",
+    "seaborn",
+]
+
+[project.optional-dependencies]
+# used by single notebooks only
+notebooks = [
+    "jupyter",
+    "ipympl",
+    "pillow",
+]
+
+[tool.setuptools.packages.find]
+include = ["scientific_utils*"]

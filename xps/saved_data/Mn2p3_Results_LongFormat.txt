@@ -1,0 +1,6 @@
+Sample	Element	Region	Component	Area	Lower_Lim	Upper_Lim
+pristine	Mn2p3	Mn2p3	Total Region	28329.17578125		
+washed01	Mn2p3	Mn2p3	Total Region	37574.91927241325		
+washed02	Mn2p3	Mn2p3	Total Region	39836.666245697736		
+washed03	Mn2p3	Mn2p3	Total Region	38325.014501276724		
+washed04	Mn2p3	Mn2p3	Total Region	36623.7421875		

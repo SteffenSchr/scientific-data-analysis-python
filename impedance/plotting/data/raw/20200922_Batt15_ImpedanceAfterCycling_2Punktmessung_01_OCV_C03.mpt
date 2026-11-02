@@ -1,0 +1,53 @@
+EC-Lab ASCII FILE
+Nb header lines : 44                          
+
+Open Circuit Voltage
+
+Run on channel : 3
+User : 
+Electrode connection : standard
+Ewe ctrl range : min = 1.80 V, max = 4.40 V
+Ewe,I filtering : <None>
+Safety Limits :
+	Do not start on E overload
+Channel : Floating
+Acquisition started on : 09/22/2020 08:00:53
+Technique started on : 09/22/2020 08:00:53
+Saved on :
+	File : 20200922_Batt15_ImpedanceAfterCycling_2Punktmessung_01_OCV_C03.mpr
+	Directory : 
+	Host : 
+Device : VMP-300
+Address : 
+EC-Lab for windows v11.32 (software)
+Internet server v11.32 (firmware)
+Command interpretor v11.32 (firmware)
+Electrode material : 
+Initial state : 
+Electrolyte : 
+Comments : 
+Cable : special
+Electrode surface area : 0.001 cm²
+Characteristic mass : 0.001 g
+Equivalent Weight : 0.000 g/eq.
+Density : 0.000 g/cm3
+Record Ece
+Record Analogic IN 1
+Cycle Definition : Charge/Discharge alternance
+tR (h:m:s)          1:00:30.0000        
+dER/dt (mV/h)       0.0                 
+dER (mV)            0.00                
+dtR (s)             2.5000              
+E range min (V)     1.800               
+E range max (V)     4.400               
+
+mode	error	time/s	Ewe/V	Ece/V	Analog IN 1/V	Ewe-Ece/V	
+3	1	0.000000000000000E+000	3.3624523E+000	6.6740887E-004	2.3337163E-005	3.3617849E+000
+3	0	2.499999936844688E+000	3.3625402E+000	4.9555750E-004	-3.7819707E-005	3.3620446E+000
+3	0	4.999999873689376E+000	3.3624218E+000	1.8622525E-004	-7.2413427E-006	3.3622355E+000
+3	0	7.499999810534064E+000	3.3624218E+000	2.5496539E-004	7.6849254E-005	3.3621669E+000
+3	0	9.999999747378752E+000	3.3625021E+000	3.2370619E-004	5.3915523E-005	3.3621783E+000
+3	0	1.249999968422344E+001	3.3622575E+000	3.5807659E-004	8.0479103E-006	3.3618994E+000
+3	0	1.499999962106813E+001	3.3623722E+000	4.6118713E-004	-3.0175079E-005	3.3619111E+000
+3	0	1.749999955791282E+001	3.3624599E+000	2.8933579E-004	3.8626269E-005	3.3621705E+000
+3	0	1.806579954361951E+001	3.3624561E+000	4.9555750E-004	-2.2530452E-005	3.3619604E+000

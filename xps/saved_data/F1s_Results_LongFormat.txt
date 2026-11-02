@@ -1,0 +1,16 @@
+Sample	Element	Region	Component	Area	Lower_Lim	Upper_Lim
+pristine	F1s	F1s	Total Region	42476.61929849864		
+pristine	F1s	F1s	C-F (PVdF)	38807.59189493419		
+pristine	F1s	F1s	LiF	3239.8193359375		
+washed01	F1s	F1s	Total Region	49090.95364227294		
+washed01	F1s	F1s	C-F (PVdF)	43427.24768371582		
+washed01	F1s	F1s	LiF	5129.60546875		
+washed02	F1s	F1s	Total Region	49188.42980876803		
+washed02	F1s	F1s	C-F (PVdF)	44531.187082327604		
+washed02	F1s	F1s	LiF	4065.5199924838557		
+washed03	F1s	F1s	Total Region	47917.163307645314		
+washed03	F1s	F1s	C-F (PVdF)	43684.35120773077		
+washed03	F1s	F1s	LiF	3774.79541015625		
+washed04	F1s	F1s	Total Region	44284.55318120837		
+washed04	F1s	F1s	C-F (PVdF)	40830.50137609362		
+washed04	F1s	F1s	LiF	3103.56005859375		

@@ -1,0 +1,4 @@
+# Plots written by the notebooks are not uploaded, the notebooks show them.
+# This file keeps the empty folder in git (the functions save into it).
+*
+!.gitignore

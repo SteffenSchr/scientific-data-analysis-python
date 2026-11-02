@@ -1,0 +1,16 @@
+Sample	Element	Region	Component	Area	Lower_Lim	Upper_Lim
+pristine	Li1s	Li1s	Total Region	830.9036865234375		
+pristine	Li1s	Li1s	Li2CO3	349.65399169921875		
+pristine	Li1s	Li1s	Li-NCM	519.1984252929688		
+washed01	Li1s	Li1s	Total Region	621.0308227539062		
+washed01	Li1s	Li1s	Li2CO3	98.08905792236328		
+washed01	Li1s	Li1s	Li-NCM	522.7074584960938		
+washed02	Li1s	Li1s	Total Region	484.9704284667969		
+washed02	Li1s	Li1s	Li2CO3	70.8750991821289		
+washed02	Li1s	Li1s	Li-NCM	436.3895263671875		
+washed03	Li1s	Li1s	Total Region	443.74237060546875		
+washed03	Li1s	Li1s	Li2CO3	66.99931335449219		
+washed03	Li1s	Li1s	Li-NCM	406.59912109375		
+washed04	Li1s	Li1s	Total Region	387.8451232910156		
+washed04	Li1s	Li1s	Li2CO3	80.0306625366211		
+washed04	Li1s	Li1s	Li-NCM	328.3492431640625		
